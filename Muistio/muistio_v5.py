@@ -31,21 +31,12 @@ while True:
     # kysyt‰‰n k‰ytt‰j‰lt‰ toimea
     syote = input("Mit‰ haluat tehd‰?:")
     if syote == "1":
-	# luetaan tiedoston sis‰ltˆ
-        #tiedosto = open(nimi, "rb")
-        #luettu = pickle.load(tiedosto)
         for i in luettu:
             print(i)
-        #tiedosto.close()
     elif syote == "2":
-        #tiedosto = open(nimi, "rb")
-        #luettu = pickle.load(tiedosto)
         teksti = input("Kirjoita uusi merkint‰:")
         luettu.append((teksti + (":::" + time.strftime("%X %x"))))
-        #tiedosto.close()
     elif syote == "3":
-        #tiedosto = open(nimi, "rb")
-        #luettu = pickle.load(tiedosto)
         # lasketaan alkioiden m‰‰r‰
         print("Listalla on", len(luettu), "merkint‰‰.")
         valinta = int(input("Mit‰ niist‰ muutetaan?:")) -1
@@ -56,10 +47,7 @@ while True:
             luettu.pop(valinta)
             uusiMerkinta = (input("Anna uusi teksti:") + (":::" + time.strftime("%X %x")))
             luettu.insert(valinta, uusiMerkinta)
-            #tiedosto.close()
     elif syote == "4":
-        #tiedosto = open(nimi, "wb")
-        #luettu = pickle.load(tiedosto)
         print("Listalla on", len(luettu), "merkint‰‰.")
         valinta = int(input("Mit‰ niist‰ poistetaan?:")) -1
         if valinta < 0 or valinta > len(luettu):
@@ -67,7 +55,6 @@ while True:
         else:
             poistettu = luettu.pop(valinta)
             print("Poistettiin merkint‰", poistettu)
-            #tiedosto.close()
     elif syote == "5":
         tiedosto = open(nimi, "wb")
         pickle.dump(luettu, tiedosto)
